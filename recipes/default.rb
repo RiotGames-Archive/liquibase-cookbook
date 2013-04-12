@@ -37,6 +37,6 @@ bash "extract_liquibase" do
     mkdir -p #{node[:liquibase][:install_path]}
     tar zxf #{src_filepath} -C #{node[:liquibase][:install_path]}
   EOH
-  
+
   not_if { File.exists?("#{node[:liquibase][:install_path]}/liquibase.jar") }
 end

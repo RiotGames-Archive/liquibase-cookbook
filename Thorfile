@@ -12,15 +12,15 @@ class Default < Thor
     super(*args)
   end
 
-  class_option :verbose, 
-    :type => :boolean, 
-    :aliases => "-v", 
+  class_option :verbose,
+    :type => :boolean,
+    :aliases => "-v",
     :default => false
 
-  method_option :knife_config, 
-    :type => :string, 
-    :aliases => "-c", 
-    :desc => "Path to your knife configuration file", 
+  method_option :knife_config,
+    :type => :string,
+    :aliases => "-c",
+    :desc => "Path to your knife configuration file",
     :default => "~/.chef/knife.rb"
   desc "release", "Create a tag from the version specific in the metadata.rb and push to the community site"
   def release
