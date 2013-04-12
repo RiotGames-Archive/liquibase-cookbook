@@ -66,7 +66,7 @@ private
 
   def liquibase_cmd(*args)
     options = default_options + args
-    Chef::ShellOut.new(options)
+    Chef::ShellOut.new(options, :cwd => new_resource.cwd)
   end
   
   def default_options

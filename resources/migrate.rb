@@ -27,6 +27,7 @@ attribute :classpath,         :kind_of => String, :required => true
 attribute :driver,            :kind_of => String, :default => "com.mysql.jdbc.Driver"
 attribute :adapter,           :kind_of => Symbol, :default => :mysql
 attribute :contexts,          :kind_of => [String, Array]
+attribute :cwd,               :kind_of => String
 
 def initialize(*args)
   super
