@@ -7,7 +7,8 @@
 
 # License and Author
 
-Author:: Jamie Winsor (<jamie@vialstudios.com>)
+Author:: Jamie Winsor (<reset@riotgames.com>)
+Author:: Jesse Howarth (<jhowarth@riotgames.com>)
 
 Copyright 2012, Riot Games
 
@@ -22,3 +23,26 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+# Resources / Providers
+
+## liquibase_migrate
+
+Migrate a database using a liquibase changelog.
+
+### Actions
+Action   | Description                   | Default
+-------  |-------------                  |---------
+run      | Run the migrations            | Yes
+force    | Force run the migrations      |
+
+### Attributes
+Attribute                  | Description                                                                          |Type     | Default
+---------                  |-------------                                                                         |-----    |--------
+change_log_file            | The liquibase change log file location on disk, relative to the cwd attribute        | String  | name
+connection                 | Database connection information                                                      | Hash    |
+classpath                  | The classpath to use when executing the migrations                                   | String  |
+driver                     | Database driver                                                                      | String  | com.mysql.jdbc.Driver
+adapter                    | Database adapter                                                                     | String  | mysql
+contexts                   | Contexts to run the migrations in                                                    | String  | live
+cwd                        | The directory to run the migrations from                                             | String  | 
