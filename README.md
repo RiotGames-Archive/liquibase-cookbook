@@ -46,3 +46,4 @@ driver                     | Database driver                                    
 adapter                    | Database adapter                                                                     | String  | mysql
 contexts                   | Contexts to run the migrations in                                                    | String  | live
 cwd                        | The directory to run the migrations from                                             | String  | 
+additional_options         | Additional options to pass to the liquibase jar                                      | Array   | []
