@@ -56,6 +56,10 @@ private
     true
   end
 
+  def change_log_properties
+    new_resource.change_log_properties.map { |k, v| "-D#{k}=#{v}" }
+  end
+
   def should_migrate?
     Chef::Log.info "[liquibase] Checking to see if database needs migrating."
     cmd = liquibase_cmd("status")
@@ -65,7 +69,8 @@ private
   end
 
   def liquibase_cmd(*args)
-    options = default_options + args + new_resource.additional_options
+    options = default_options + args + change_log_properties
+    Chef::Log.info "[liquibase] command: #{options}"
     Chef::ShellOut.new(options, :cwd => new_resource.cwd)
   end
   
