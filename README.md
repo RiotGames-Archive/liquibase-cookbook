@@ -37,12 +37,13 @@ run      | Run the migrations            | Yes
 force    | Force run the migrations      |
 
 ### Attributes
-Attribute                  | Description                                                                          |Type     | Default
----------                  |-------------                                                                         |-----    |--------
-change_log_file            | The liquibase change log file location on disk, relative to the cwd attribute        | String  | name
-connection                 | Database connection information                                                      | Hash    |
-classpath                  | The classpath to use when executing the migrations                                   | String  |
-driver                     | Database driver                                                                      | String  | com.mysql.jdbc.Driver
-adapter                    | Database adapter                                                                     | String  | mysql
-contexts                   | Contexts to run the migrations in                                                    | String  | live
-cwd                        | The directory to run the migrations from                                             | String  | 
+Attribute                  | Description                                                                                                         |Type     | Default
+---------                  |-------------                                                                                                        |-----    |--------
+change_log_file            | The liquibase change log file location on disk, relative to the cwd attribute                                       | String  | name
+connection                 | Database connection information                                                                                     | Hash    |
+classpath                  | The classpath to use when executing the migrations                                                                  | String  |
+driver                     | Database driver                                                                                                     | String  | com.mysql.jdbc.Driver
+adapter                    | Database adapter                                                                                                    | String  | mysql
+contexts                   | Contexts to run the migrations in                                                                                   | String  | live
+cwd                        | The directory to run the migrations from                                                                            | String  | 
+change_log_properties      | A hash where the keys are property names and the values are property values for substitution into the change log(s) | Hash    | {}
