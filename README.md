@@ -40,6 +40,7 @@ force    | Force run the migrations      |
 Attribute                  | Description                                                                                                         |Type     | Default
 ---------                  |-------------                                                                                                        |-----    |--------
 change_log_file            | The liquibase change log file location on disk, relative to the cwd attribute                                       | String  | name
+jar                        | The location of the liquibase jar to use                                                                            | String  |
 connection                 | Database connection information                                                                                     | Hash    |
 classpath                  | The classpath to use when executing the migrations                                                                  | String  |
 driver                     | Database driver                                                                                                     | String  | com.mysql.jdbc.Driver
