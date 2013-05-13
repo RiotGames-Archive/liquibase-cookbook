@@ -22,6 +22,7 @@
 actions :run, :force
 
 attribute :change_log_file,       :kind_of => String, :name_attribute => true
+attribute :jar,                   :kind_of => String
 attribute :connection,            :kind_of => Hash, :required => true
 attribute :classpath,             :kind_of => String, :required => true
 attribute :driver,                :kind_of => String, :default => "com.mysql.jdbc.Driver"
