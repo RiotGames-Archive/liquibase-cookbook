@@ -56,6 +56,14 @@ private
     true
   end
 
+  def liquibase_jar
+    if new_resource.jar 
+      Shellwords.escape(new_resource.jar)
+    else
+      "#{Shellwords.escape(node[:liquibase][:install_path])}/liquibase.jar"
+    end
+  end
+
   def change_log_properties
     new_resource.change_log_properties.map { |k, v| "-D#{k}=#{v}" }
   end
@@ -77,7 +85,7 @@ private
     options = [
       "/usr/bin/java",
       "-jar",
-      "#{Shellwords.escape(node[:liquibase][:install_path])}/liquibase.jar",
+      liquibase_jar,
       "--driver=#{Shellwords.escape(new_resource.driver)}",
       "--classpath=#{Shellwords.escape(new_resource.classpath)}",
       "--changeLogFile=#{Shellwords.escape(new_resource.change_log_file)}",
