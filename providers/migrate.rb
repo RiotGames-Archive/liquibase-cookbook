@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-require 'chef/shell_out'
+require 'mixlib/shellout'
 require 'shellwords'
 
 def load_current_resource
@@ -46,7 +46,6 @@ private
   def perform_migrate
     cmd = liquibase_cmd("update")
     cmd.run_command
-
     unless cmd.status.exitstatus == 0
       Chef::Log.fatal cmd.stderr
       Chef::Log.fatal cmd.stdout
@@ -72,13 +71,12 @@ private
     Chef::Log.info "[liquibase] Checking to see if database needs migrating."
     cmd = liquibase_cmd("status")
     cmd.run_command
-
-    cmd.stderr.match(/is up to date/).nil?
+    cmd.stdout.match(/is up to date/).nil?
   end
 
   def liquibase_cmd(*args)
     options = default_options + args + change_log_properties
-    Chef::ShellOut.new(options, :cwd => new_resource.cwd)
+    Mixlib::ShellOut.new(options, :env => {'LC_ALL' => 'en_US.UTF-8'} ,:cwd => new_resource.cwd)
   end
   
   def default_options

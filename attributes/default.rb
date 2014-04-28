@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-default[:liquibase][:version]      = "2.0.4"
-default[:liquibase][:url]          = "https://github.com/downloads/liquibase/liquibase/liquibase-#{node[:liquibase][:version]}-bin.tar.gz"
-default[:liquibase][:checksum]     = "1e0586333edae8b45d78b274e1a5d5dc"
+default[:liquibase][:version]      = "3.1.1"
+default[:liquibase][:url]          = "http://softlayer-dal.dl.sourceforge.net/project/liquibase/Liquibase%20Core/liquibase-#{node[:liquibase][:version]}-bin.tar.gz"
+default[:liquibase][:checksum]     = "91c237126ad37703e8e04bb49235044c"
 default[:liquibase][:install_path] = "/opt/liquibase-#{node[:liquibase][:version]}"
