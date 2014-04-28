@@ -7,8 +7,10 @@
 
 # License and Author
 
-Author:: Jamie Winsor (<reset@riotgames.com>)
+Author:: Jamie Winsor (<reset@riotgames.com>)  
 Author:: Jesse Howarth (<jhowarth@riotgames.com>)
+
+Maintainer:: Josiah Kiehl (<jkiehl@riotgames.com>)
 
 Copyright 2012-2013, Riot Games
 

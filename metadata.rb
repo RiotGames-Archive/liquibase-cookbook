@@ -1,6 +1,6 @@
 name             "liquibase"
 maintainer       "Riot Games"
-maintainer_email "jamie@vialstudios.com"
+maintainer_email "bluepojo@gmail.com"
 license          "Apache 2.0"
 description      "Installs and configures Liquibase"
 version          "1.0.0"
