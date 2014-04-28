@@ -34,7 +34,7 @@ jar                        | The location of the liquibase jar to use           
 connection                 | Database connection information                                                                                     | Hash    |
 classpath                  | The classpath to use when executing the migrations                                                                  | String  |
 driver                     | Database driver                                                                                                     | String  | com.mysql.jdbc.Driver
-adapter                    | Database adapter                                                                                                    | Symbol  | mysql
+adapter                    | Database adapter                                                                                                    | Symbol  | :mysql
 contexts                   | Contexts to run the migrations in                                                                                   | String  | live
 cwd                        | The directory to run the migrations from                                                                            | String  | 
 change_log_properties      | A hash where the keys are property names and the values are property values for substitution into the change log(s) | Hash    | {}
