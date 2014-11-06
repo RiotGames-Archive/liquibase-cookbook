@@ -20,6 +20,7 @@
 #
 
 actions :run, :force
+default_action :create
 
 attribute :change_log_file,       :kind_of => String, :name_attribute => true
 attribute :jar,                   :kind_of => String
