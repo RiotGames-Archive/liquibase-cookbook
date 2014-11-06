@@ -95,7 +95,7 @@ private
     if new_resource.driver_properties_file
       options << "--driverPropertiesFile=#{Shellwords.escape(new_resource.driver_properties_file)}"
     else
-      options << "--password=#{Shellwords.escape(new_resource.connection[:password]})"
+      options << "--password=#{Shellwords.escape(new_resource.connection[:password])}"
     end
       
     if new_resource.contexts
