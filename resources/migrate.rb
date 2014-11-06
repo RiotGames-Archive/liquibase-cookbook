@@ -22,16 +22,16 @@
 actions :run, :force
 default_action :create
 
-attribute :change_log_file,       :kind_of => String, :name_attribute => true
-attribute :jar,                   :kind_of => String
-attribute :connection,            :kind_of => Hash
-attribute :classpath,             :kind_of => String, :required => true
-attribute :driver,                :kind_of => String, :default => "com.mysql.jdbc.Driver"
-attribute :driver_properties_file	:kind_of => String
-attribute :adapter,               :kind_of => Symbol, :default => :mysql
-attribute :contexts,              :kind_of => [String, Array]
-attribute :cwd,                   :kind_of => String
-attribute :change_log_properties, :kind_of => Hash, :default => Hash.new
+attribute :change_log_file,        :kind_of => String, :name_attribute => true
+attribute :jar,                    :kind_of => String
+attribute :connection,             :kind_of => Hash
+attribute :classpath,              :kind_of => String, :required => true
+attribute :driver,                 :kind_of => String, :default => "com.mysql.jdbc.Driver"
+attribute :driver_properties_file, :kind_of => String
+attribute :adapter,                :kind_of => Symbol, :default => :mysql
+attribute :contexts,               :kind_of => [String, Array]
+attribute :cwd,                    :kind_of => String
+attribute :change_log_properties,  :kind_of => Hash, :default => Hash.new
 
 def initialize(*args)
   super
