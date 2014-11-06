@@ -40,3 +40,4 @@ adapter                    | Database adapter                                   
 contexts                   | Contexts to run the migrations in                                                                                   | String  | live
 cwd                        | The directory to run the migrations from                                                                            | String  | 
 change_log_properties      | A hash where the keys are property names and the values are property values for substitution into the change log(s) | Hash    | {}
+driver_properties_file     | The location of the driverPropertiesFile. If exists, the password retrieved from there                              | String  |

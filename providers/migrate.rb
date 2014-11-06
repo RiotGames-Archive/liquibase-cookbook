@@ -23,7 +23,7 @@ require 'mixlib/shellout'
 require 'shellwords'
 
 def load_current_resource
-  new_resource.connection[:port] ||= 3306
+  new_resource.connection[:port] ||= 3306 if new_resource.connection
   @current_resource = Chef::Resource::LiquibaseMigrate.new(new_resource.name)
 end
 
@@ -45,6 +45,7 @@ private
 
   def perform_migrate
     cmd = liquibase_cmd("update")
+    Chef::Log.info cmd
     cmd.run_command
     unless cmd.status.exitstatus == 0
       Chef::Log.fatal cmd.stderr
@@ -84,14 +85,19 @@ private
       "/usr/bin/java",
       "-jar",
       liquibase_jar,
-      "--driver=#{Shellwords.escape(new_resource.driver)}",
       "--classpath=#{Shellwords.escape(new_resource.classpath)}",
       "--changeLogFile=#{Shellwords.escape(new_resource.change_log_file)}",
+      "--driver=#{Shellwords.escape(new_resource.driver)}",
       "--url=#{Shellwords.escape(new_resource.connection_url)}",
-      "--username=#{Shellwords.escape(new_resource.connection[:username])}",
-      "--password=#{Shellwords.escape(new_resource.connection[:password])}"
+      "--username=#{Shellwords.escape(new_resource.connection[:username])}"
     ]
-
+    
+    if new_resource.driver_properties_file
+      options << "--driverPropertiesFile=#{Shellwords.escape(new_resource.driver_properties_file)}"
+    else
+      options << "--password=#{Shellwords.escape(new_resource.connection[:password])}"
+    end
+      
     if new_resource.contexts
       contexts = if new_resource.contexts.is_a?(Array)
         new_resource.contexts.split(",")
