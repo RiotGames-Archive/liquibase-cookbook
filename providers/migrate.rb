@@ -76,7 +76,7 @@ private
 
   def liquibase_cmd(*args)
     options = default_options + args + change_log_properties
-    Mixlib::ShellOut.new(options, :env => {'LC_ALL' => 'en_US.UTF-8'} ,:cwd => new_resource.cwd)
+    Mixlib::ShellOut.new(options.join(' '), :env => {'LC_ALL' => 'en_US.UTF-8'} ,:cwd => new_resource.cwd)
   end
   
   def default_options
