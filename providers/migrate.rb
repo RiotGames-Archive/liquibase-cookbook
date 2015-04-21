@@ -88,9 +88,12 @@ private
       "--classpath=#{Shellwords.escape(new_resource.classpath)}",
       "--changeLogFile=#{Shellwords.escape(new_resource.change_log_file)}",
       "--url=#{Shellwords.escape(new_resource.connection_url)}",
-      "--username=#{Shellwords.escape(new_resource.connection[:username])}",
-      "--password=#{Shellwords.escape(new_resource.connection[:password])}"
+      "--username=#{Shellwords.escape(new_resource.connection[:username])}"
     ]
+
+    unless new_resource.connection[:password].nil?
+      options << "--password=#{Shellwords.escape(new_resource.connection[:password])}"
+    end
 
     if new_resource.contexts
       contexts = if new_resource.contexts.is_a?(Array)
